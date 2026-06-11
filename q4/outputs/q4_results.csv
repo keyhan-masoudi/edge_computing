@@ -1,0 +1,13 @@
+load_level,algorithm,total_tasks,missed_deadlines,Miss Ratio (%),Avg Response (ms),Energy (J),Utilization (%)
+low_load,EDF,183,0,0.0,4.326,10.4889,49.54
+low_load,RM,183,0,0.0,4.326,10.4889,49.54
+low_load,SEDM_Heuristic,183,0,0.0,4.344,10.5049,49.56
+low_load,RL_Q_Learning,183,0,0.0,4.584,14.7125,95.25
+medium_load,EDF,294,0,0.0,6.081,15.1443,68.87
+medium_load,RM,294,0,0.0,6.081,15.1443,68.87
+medium_load,SEDM_Heuristic,294,0,0.0,6.132,15.1427,68.89
+medium_load,RL_Q_Learning,294,0,0.0,6.859,15.8167,74.46
+overload,EDF,412,12,2.91,11.108,22.3159,95.02
+overload,RM,412,20,4.85,11.184,22.2064,93.34
+overload,SEDM_Heuristic,412,27,6.55,11.787,22.1792,92.99
+overload,RL_Q_Learning,412,7,1.7,11.412,22.2886,98.08
