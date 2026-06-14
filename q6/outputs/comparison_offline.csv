@@ -1,0 +1,4 @@
+,average_latency,critical_detection_rate,false_alarm_count,privacy_violation_count,non_transferable_violation_count,cloud_usage_count,human_review_count,audit_required_count
+our_engine,5.79,0.8837,0.0,0.0,0.0,0.0,0.0,57.0
+first_cloud,8.56,0.8837,0.0,20.0,20.0,0.0,0.0,57.0
+first_latency,4.56,0.8837,0.0,0.0,0.0,0.0,0.0,57.0
