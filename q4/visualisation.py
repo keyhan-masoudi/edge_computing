@@ -21,11 +21,7 @@ def plot_comparison(df: pd.DataFrame,
     """
     Four-panel bar chart: one panel per KPI, grouped by load level,
     coloured by algorithm.
-
-    Parameters
-    ----------
-    df  : results DataFrame returned by simulation.run_all()
-    out : output file path  (default: OUTPUT_DIR/q4_comparison.png)
+    
     """
     if out is None:
         out = os.path.join(OUTPUT_DIR, "q4_comparison.png")
@@ -103,13 +99,6 @@ def plot_gantt(load_level: str,
     Red border around a bar = deadline was missed.
     Bar colour = task type (periodic / sporadic / aperiodic).
 
-    Parameters
-    ----------
-    load_level : 'low_load' | 'medium_load' | 'overload'
-    algorithm  : 'EDF' | 'RM' | 'SEDM_Heuristic' | 'RL_Q-Learning'
-    out        : output file path  (default: OUTPUT_DIR/q4_gantt_{algorithm}.png)
-    seed       : RNG seed for task generation
-    window_ms  : how many milliseconds to display (default 200)
     """
     if out is None:
         out = os.path.join(OUTPUT_DIR, f"q4_gantt_{algorithm}.png")

@@ -1,13 +1,9 @@
 class Task:
     """
     One real-time task instance (periodic, sporadic, or aperiodic).
-
-    The class-level counter `_counter` is reset by the workload generator
-    at the start of each scenario so task IDs are always 1-based and
-    reproducible within a run.
     """
 
-    _counter: int = 0   # global id counter — reset via Task.reset_counter()
+    _counter: int = 0   # global id counter
 
     def __init__(self,
                  task_type:    str,
@@ -20,7 +16,6 @@ class Task:
         Task._counter += 1
         self.id           = Task._counter
 
-        # ── Static attributes (set at creation) ─────────────────────────────
         self.type         = task_type        # 'periodic' | 'sporadic' | 'aperiodic'
         self.exec_time    = exec_time        # ms — WCET
         self.period       = period           # ms — 0 means no period
@@ -39,14 +34,12 @@ class Task:
         self.finish_time   = None    # ms
         self.missed        = False   # True if finish_time > abs_deadline
 
-    # ── Class-level helpers ──────────────────────────────────────────────────
 
     @classmethod
     def reset_counter(cls) -> None:
         """Call before generating a new task set for reproducible IDs."""
         cls._counter = 0
-
-    # ── Dunder ───────────────────────────────────────────────────────────────
+        
 
     def __repr__(self) -> str:
         return (f"Task(id={self.id}, {self.type[:3]}, "

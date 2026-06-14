@@ -23,7 +23,7 @@ def run_all(seed: int = RANDOM_SEED) -> pd.DataFrame:
     Run all four schedulers on all three load levels.
 
     For each combination:
-      1. Generate a fresh task set (and save it to CSV).
+      1. Generate a fresh task set
       2. Deep-copy tasks so each scheduler works on an independent copy.
       3. For RL: train offline on a copy of the task set, then reset
          node state before the greedy evaluation pass.
@@ -69,7 +69,7 @@ def run_all(seed: int = RANDOM_SEED) -> pd.DataFrame:
 
 def _build_schedulers() -> list:
     """
-    Instantiate all four schedulers, each with its own fresh platform copy.
+    Instantiate all four schedulers.
     """
     return [
         EDFScheduler(build_platform()),

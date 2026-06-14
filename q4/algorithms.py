@@ -131,13 +131,6 @@ class SEDMScheduler(Scheduler):
 
     6. If no node can satisfy the deadline,
        choose the node with the earliest finish time.
-
-    Rationale
-    ---------
-    - Deadline satisfaction is treated as the primary objective.
-    - Energy optimisation is performed only among feasible allocations.
-    - Works well on heterogeneous edge nodes with different speeds
-      and communication delays.
     """
 
     def __init__(
@@ -366,11 +359,6 @@ class RLScheduler(Scheduler):
     Q-Learning based Task Offloading Scheduler
     for Heterogeneous Edge Computing.
 
-    Objective
-    ---------
-    Learn the most suitable edge node for executing
-    each arriving task.
-
     State
     -----
     (
@@ -414,7 +402,6 @@ class RLScheduler(Scheduler):
         self.eps_decay = eps_decay
 
         # State dimensions: urgency(5) × avg_load(5) × least_loaded_node(n_nodes) × task_type(3) × action(n_nodes)
-        # افزایش ابعاد برای درک همزمان بار سیستم و خلوت‌ترین نود
         self.Q = np.zeros((5, 5, self.n_nodes, 3, self.n_nodes))
 
     # ==================================================

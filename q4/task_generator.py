@@ -8,7 +8,6 @@ from config import (RANDOM_SEED, HORIZON, LOAD_PARAMS, PERIODIC_TEMPLATES,
 from task import Task
 
 
-# ── Public API ───────────────────────────────────────────────────────────────
 
 def generate_task_set(load_level: str, seed: int = RANDOM_SEED) -> list:
     """
@@ -44,11 +43,6 @@ def generate_task_set(load_level: str, seed: int = RANDOM_SEED) -> list:
 
 def save_dataset_csv(tasks: list, load_level: str,
                      out_dir: str = OUTPUT_DIR) -> str:
-    """
-    Serialize *tasks* to a CSV file.
-
-    Returns the path of the written file.
-    """
     os.makedirs(out_dir, exist_ok=True)
     rows = [
         {
@@ -73,8 +67,6 @@ def _make_periodic(n_templates: int) -> list:
     """
     Instantiate *n_templates* periodic task families.
     Each family contributes one Task per period over [0, HORIZON).
-    A ±0.3 ms jitter is added to exec_time to avoid perfectly aligned
-    worst-case scenarios.
     """
     tasks = []
     for (et, per, dl) in PERIODIC_TEMPLATES[:n_templates]:

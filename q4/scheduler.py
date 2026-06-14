@@ -6,8 +6,6 @@ from task import Task
 
 class Scheduler:
     """
-    Base class for edge real-time task schedulers.
-
     Parameters
     ----------
     name  : human-readable algorithm name (used in output tables)
@@ -18,10 +16,7 @@ class Scheduler:
         self.name  = name
         self.nodes = nodes
 
-    # ── State management ─────────────────────────────────────────────────────
-
     def reset(self) -> None:
-        """Reset every node's runtime state (busy_until, energy_used)."""
         for node in self.nodes:
             node.reset()
 
@@ -34,9 +29,8 @@ class Scheduler:
                             ) -> tuple:
         """
         Compute the outcome of assigning *task* to *node* WITHOUT
-        committing any state changes.  Used by all schedulers for
-        look-ahead / scoring.
-
+        committing any state changes.
+        
         Parameters
         ----------
         task              : the Task to evaluate
@@ -72,10 +66,7 @@ class Scheduler:
                 missed:        bool,
                 energy:        float,
                 response_time: float) -> None:
-        """
-        Persist the results of an allocation decision to both the
-        task object and the node object.
-        """
+
         actual_exec        = task.exec_time / node.speed
         task.assigned_node = node.id
         task.start_time    = finish - actual_exec
@@ -89,10 +80,10 @@ class Scheduler:
     def compute_metrics(self, tasks: list) -> dict:
         """
         Compute the four evaluation KPIs defined in the question:
-          Miss Ratio (%)       — fraction of tasks that missed their deadline
-          Avg Response (ms)    — mean (finish_time − arrival_time)
-          Energy (J)           — total energy consumed by all nodes
-          Utilization (%)      — fraction of time nodes were busy
+          Miss Ratio (%) 
+          Avg Response (ms)
+          Energy (J)      
+          Utilization (%)  
         """
         done = [t for t in tasks if t.finish_time is not None]
         if not done:

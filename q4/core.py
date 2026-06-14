@@ -26,14 +26,9 @@ class EdgeNode:
         self.busy_until  = 0.0
         self.energy_used = 0.0
 
-    # ── Runtime helpers ──────────────────────────────────────────────────────
-
     def reset(self) -> None:
-        """Clear runtime state before a new scheduling run."""
         self.busy_until  = 0.0
         self.energy_used = 0.0
-
-    # ── Dunder ───────────────────────────────────────────────────────────────
 
     def __repr__(self) -> str:
         return (f"EdgeNode(id={self.id}, speed={self.speed}x, "

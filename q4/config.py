@@ -1,4 +1,3 @@
-# ── Reproducibility ───────────────────────────────────────────────────────────
 RANDOM_SEED = 42
 
 # ── Simulation window ────────────────────────────────────────────────────────
@@ -16,12 +15,11 @@ NODE_SPECS = [
     (3, 5.0, 35, 5, 15.0),  # Fast but huge network delay
 ]
 
-# ── Workload — number of each task type per load level ───────────────────────
 # (n_periodic_templates, n_sporadic, n_aperiodic)
 LOAD_PARAMS = {
-    "low_load":    (4,   10,   12),   # Utilization ~ 65% (Relaxed)
-    "medium_load": (8,  20,  22),   # Utilization ~ 92% (Edge of capacity)
-    "overload":    (11, 40,  50),   # Utilization ~ 125% (TRUE OVERLOAD - System Breaking Point)
+    "low_load":    (4,   10,   12),
+    "medium_load": (8,  20,  22),
+    "overload":    (11, 40,  50),
 }
 
 # ── Periodic task templates — (exec_time_ms, period_ms, deadline_ms) ─────────
